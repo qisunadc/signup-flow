@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Web App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-card">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1" onclick="goToStep(1)">
+                    <div class="step-number">1</div>
+                    <span class="step-label">Name</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2" onclick="goToStep(2)">
+                    <div class="step-number">2</div>
+                    <span class="step-label">Email</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3" onclick="goToStep(3)">
+                    <div class="step-number">3</div>
+                    <span class="step-label">Password</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="4" onclick="goToStep(4)">
+                    <div class="step-number">4</div>
+                    <span class="step-label">Business</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="5" onclick="goToStep(5)">
+                    <div class="step-number">5</div>
+                    <span class="step-label">Website</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="6" onclick="goToStep(6)">
+                    <div class="step-number">6</div>
+                    <span class="step-label">Industry</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Name -->
+            <div class="step-content active" id="step1">
+                <div class="header">
+                    <h1>Welcome to DirectHub</h1>
+                    <p>Let's start with your basic information</p>
+                </div>
+                
+                <form class="step-form" id="nameForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="submit" class="next-btn" id="nextToEmail">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Email -->
+            <div class="step-content" id="step2">
+                <div class="header">
+                    <h1>What's your email?</h1>
+                    <p>We'll use this to contact you</p>
+                </div>
+                
+                <form class="step-form" id="emailForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="back-btn" id="backToName">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="next-btn" id="nextToPassword">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Password -->
+            <div class="step-content" id="step3">
+                <div class="header">
+                    <h1>Create your password</h1>
+                    <p>Choose a strong password to secure your account</p>
+                </div>
+                
+                <form class="step-form" id="passwordForm">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" required>
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <button type="button" class="toggle-password" id="toggleConfirmPassword">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="back-btn" id="backToEmail2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="next-btn" id="nextToBusiness">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Business Name -->
+            <div class="step-content" id="step4">
+                <div class="header">
+                    <h1>What's your business name?</h1>
+                    <p>Tell us about your business</p>
+                </div>
+                
+                <form class="step-form" id="businessForm">
+                    <div class="form-group">
+                        <label for="businessName">Business Name</label>
+                        <input type="text" id="businessName" name="businessName" required>
+                        <span class="error-message" id="businessNameError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="back-btn" id="backToPassword">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="next-btn" id="nextToWebsite">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 5: Business Website -->
+            <div class="step-content" id="step5">
+                <div class="header">
+                    <h1>What's your business website?</h1>
+                    <p>Share your business website with us</p>
+                </div>
+                
+                <form class="step-form" id="websiteForm">
+                    <div class="form-group">
+                        <label for="businessWebsite">Business Website</label>
+                        <input type="url" id="businessWebsite" name="businessWebsite" placeholder="https://example.com" required>
+                        <span class="error-message" id="businessWebsiteError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="back-btn" id="backToBusiness">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="next-btn" id="nextToIndustry">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 6: Business Industry -->
+            <div class="step-content" id="step6">
+                <div class="header">
+                    <h1>What industry is your business in?</h1>
+                    <p>Help us understand your business better</p>
+                </div>
+                
+                <form class="step-form" id="industryForm">
+                    <div class="form-group">
+                        <label for="businessIndustry">Business Industry</label>
+                        <select id="businessIndustry" name="businessIndustry" required>
+                            <option value="">Select an industry</option>
+                            <option value="technology">Technology</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance</option>
+                            <option value="education">Education</option>
+                            <option value="retail">Retail</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="food-beverage">Food & Beverage</option>
+                            <option value="travel">Travel & Tourism</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="non-profit">Non-Profit</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message" id="businessIndustryError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="microIndustry">Micro Industry (Optional)</label>
+                        <input type="text" id="microIndustry" name="microIndustry" placeholder="e.g., SaaS, E-commerce, Mobile Apps">
+                        <span class="error-message" id="microIndustryError"></span>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="back-btn" id="backToWebsite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-loading" style="display: none;">
+                                <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                                        <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
+                                        <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
+                                    </circle>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="login-link">
+                Already have an account? <a href="#" class="link">Sign in</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                </svg>
+            </div>
+            <h2>Account Created!</h2>
+            <p>Welcome to our community. Your account has been successfully created.</p>
+            <button class="modal-btn" onclick="closeModal()">Continue</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
